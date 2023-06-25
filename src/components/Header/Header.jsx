@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import ActiveLink from "../ActiveLink/ActiveLink";
 
-
 const Header = () => {
   return (
     <div className="bg-gray-100">
