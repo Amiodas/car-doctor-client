@@ -5,20 +5,28 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, email, password);
+    console.log(name, photoURL, email, password);
 
     createUser(email, password)
       .then((res) => {
         console.log(res);
+        updateUser(name, photoURL)
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         toast("Successfully Registered!");
       })
       .catch((error) => {
@@ -49,6 +57,17 @@ const Register = () => {
                   type="text"
                   placeholder="Name"
                   name="name"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Image</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Image"
+                  name="photoURL"
                   className="input input-bordered"
                 />
               </div>
