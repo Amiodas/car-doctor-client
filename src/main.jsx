@@ -11,6 +11,8 @@ import Contact from "./Pages/Contact/Contact";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
+import AuthProvider from "./providers/AuthProvider";
+import Profile from "./Pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,10 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
         path: "*",
         element: <ErrorPage />,
       },
@@ -55,6 +61,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

@@ -3,12 +3,43 @@ import {
   faShoppingBag,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import ActiveLink from "../ActiveLink/ActiveLink";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
+  const { user, loading, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleSignOut = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+          .then(() => {
+            toast("User Logged out!!!");
+          })
+          .catch((error) => {
+            toast(error.message);
+            console.log(error);
+          });
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
+  };
   return (
     <div className="bg-gray-100">
+      <ToastContainer />
       <div className="container mx-auto flex justify-between items-center">
         <img width="80px" className="py-3" src="/logo.svg" alt="" />
         <div className="flex justify-center gap-5">
@@ -25,6 +56,31 @@ const Header = () => {
           <button className="btn btn-circle">
             <FontAwesomeIcon icon={faShoppingBag} />
           </button>
+          {loading ? (
+            <span className="loading loading-spinner text-orange-600"></span>
+          ) : (
+            ""
+          )}
+          {user ? (
+            <div className="dropdown">
+              <label tabIndex={0} className="m-1 btn">
+                <p className="text-orange-600 font-bold">{user?.displayName}</p>
+              </label>
+              <ul
+                tabIndex={0}
+                className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <Link to="/profile">Your Profile</Link>
+                </li>
+                <li>
+                  <button onClick={handleSignOut}>Logout</button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
           <button className="btn btn-outline">Appointment</button>
         </div>
       </div>
