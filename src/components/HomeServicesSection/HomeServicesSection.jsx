@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./HomeServicesSection.css"
+import "./HomeServicesSection.css";
 
 const HomeServicesSection = () => {
   const [services, setServices] = useState([]);
@@ -34,11 +34,16 @@ const HomeServicesSection = () => {
                   <p className="text-xl font-bold text-orange-600">
                     Price: {service.price}
                   </p>
-                  <button className="btn btn-primary">Buy Now</button>
+                  <button className="btn bg-orange-500 text-white hover:bg-orange-600">Buy Now</button>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center mt-8">
+          <button className="btn btn-outline text-orange-600  px-6 py-4 hover:bg-orange-600 hover:border-0">
+            More Services
+          </button>
         </div>
       </div>
     </div>
