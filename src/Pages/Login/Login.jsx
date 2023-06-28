@@ -13,10 +13,8 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
     loginUser(email, password)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         toast("Successfully login");
         navigate("/");
       })
@@ -27,8 +25,7 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         toast("Successfully sign in with google");
       })
       .catch((error) => {

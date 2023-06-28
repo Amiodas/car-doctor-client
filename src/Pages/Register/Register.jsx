@@ -15,14 +15,10 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, photoURL, email, password);
-
     createUser(email, password)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         updateUser(name, photoURL)
-          .then((response) => {
-            console.log(response);
+          .then(() => {
           })
           .catch((error) => {
             console.log(error);

@@ -8,7 +8,6 @@ const Checkout = () => {
   const { _id, title, img } = service;
 
   const navigate = useNavigate();
-  console.log(service);
 
   const handleBookService = (event) => {
     event.preventDefault();
@@ -18,7 +17,6 @@ const Checkout = () => {
     const email = form.email.value;
     const price = form.price.value;
     const message = form.message.value;
-    console.log(name, date, email, price, message);
     const order = {
       customerName: name,
       img,
@@ -30,7 +28,6 @@ const Checkout = () => {
       message: message,
       status: "PENDING"
     };
-    console.log(order);
 
     fetch("http://localhost:5000/bookings", {
       method: "POST",
@@ -40,9 +37,8 @@ const Checkout = () => {
       body: JSON.stringify(order),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         navigate("/myBookings");
-        console.log(data);
       });
   };
 

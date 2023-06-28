@@ -13,7 +13,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   const { user, loading, logOut } = useContext(AuthContext);
-  console.log(user);
   const handleSignOut = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -42,12 +41,12 @@ const Header = () => {
       <ToastContainer />
       <div className="container mx-auto flex justify-between items-center">
         <img width="80px" className="py-3" src="/logo.svg" alt="" />
-        <div className="flex justify-center gap-5">
+        <div className="flex justify-center items-center gap-5">
           <ActiveLink to="/">Home</ActiveLink>
           <ActiveLink to="/about">About</ActiveLink>
           <ActiveLink to="/services">Services</ActiveLink>
-          <ActiveLink to="/blog">Blog</ActiveLink>
-          <ActiveLink to="/contact">Contact</ActiveLink>
+          {/* <ActiveLink to="/blog">Blog</ActiveLink> */}
+          {/* <ActiveLink to="/contact">Contact</ActiveLink> */}
         </div>
         <div className="flex items-center gap-2">
           <button className="btn btn-circle">
