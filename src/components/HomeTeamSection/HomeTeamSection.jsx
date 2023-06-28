@@ -23,10 +23,18 @@ const HomeTeamSection = () => {
             <h3 className="card-title">Car Engineer</h3>
             <p className="font-medium">Engine Expert</p>
             <div className="flex gap-3 mt-5">
-              <button className="btn btn-circle btn-primary lowercase font-bold">f</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">in</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">t</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">i</button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                f
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                in
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                t
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                i
+              </button>
             </div>
           </div>
         </div>
@@ -42,10 +50,18 @@ const HomeTeamSection = () => {
             <h3 className="card-title">Car Engineer</h3>
             <p className="font-medium">Engine Expert</p>
             <div className="flex gap-3 mt-5">
-              <button className="btn btn-circle btn-primary lowercase font-bold">f</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">in</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">t</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">i</button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                f
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                in
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                t
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                i
+              </button>
             </div>
           </div>
         </div>
@@ -61,10 +77,18 @@ const HomeTeamSection = () => {
             <h3 className="card-title">Car Engineer</h3>
             <p className="font-medium">Engine Expert</p>
             <div className="flex gap-3 mt-5">
-              <button className="btn btn-circle btn-primary lowercase font-bold">f</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">in</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">t</button>
-              <button className="btn btn-circle btn-primary lowercase font-bold">i</button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                f
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                in
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                t
+              </button>
+              <button className="btn btn-circle bg-orange-600 hover:bg-orange-700 text-white lowercase font-bold">
+                i
+              </button>
             </div>
           </div>
         </div>

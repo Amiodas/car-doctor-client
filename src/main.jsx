@@ -13,6 +13,9 @@ import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import AuthProvider from "./providers/AuthProvider";
 import Profile from "./Pages/Profile/Profile";
+import Checkout from "./Pages/Checkout/Checkout";
+import Bookings from "./Pages/Bookings/Bookings";
+import PrivateRoutes from "./routes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +52,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: <PrivateRoutes><Profile /></PrivateRoutes>,
+      },
+      {
+        path: "/checkout/:id",
+        element: <PrivateRoutes><Checkout /></PrivateRoutes>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/services/${params.id}`),
+      },
+      {
+        path: "/myBookings",
+        element: <PrivateRoutes><Bookings /></PrivateRoutes>
       },
       {
         path: "*",

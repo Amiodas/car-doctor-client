@@ -3,7 +3,7 @@ import Banner from "../../components/Banner/Banner";
 import HomeAboutSection from "../../components/HomeAboutSection/HomeAboutSection";
 import HomeServicesSection from "../../components/HomeServicesSection/HomeServicesSection";
 import HomeContactSection from "../../components/HomeContactSection/HomeContactSection";
-import HomeProductSection from "../../components/HomeProductSection/HomeProductSection";
+// import HomeProductSection from "../../components/HomeProductSection/HomeProductSection";
 import HomeTeamSection from "../../components/HomeTeamSection/HomeTeamSection";
 import HomeFeatureSection from "../../components/HomeFeatureSection/HomeFeatureSection";
 import HomeTestimonialSection from "../../components/HomeTestimonialSection/HomeTestimonialSection";
@@ -15,7 +15,7 @@ const Home = () => {
       <HomeAboutSection />
       <HomeServicesSection />
       <HomeContactSection />
-      <HomeProductSection />
+      {/* <HomeProductSection /> */}
       <HomeTeamSection />
       <HomeFeatureSection />
       <HomeTestimonialSection />

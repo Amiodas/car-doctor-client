@@ -62,7 +62,7 @@ const Header = () => {
             ""
           )}
           {user ? (
-            <div className="dropdown">
+            <div className="dropdown z-10">
               <label tabIndex={0} className="m-1 btn">
                 <p className="text-orange-600 font-bold">{user?.displayName}</p>
               </label>
@@ -74,12 +74,17 @@ const Header = () => {
                   <Link to="/profile">Your Profile</Link>
                 </li>
                 <li>
+                  <Link to="/myBookings">My Bookings</Link>
+                </li>
+                <li>
                   <button onClick={handleSignOut}>Logout</button>
                 </li>
               </ul>
             </div>
           ) : (
-            ""
+            <Link to="/login">
+            <button className="btn bg-orange-600 text-white hover:bg-orange-700">Login</button>
+            </Link>
           )}
           <button className="btn btn-outline">Appointment</button>
         </div>

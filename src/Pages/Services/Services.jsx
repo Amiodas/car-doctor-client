@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import HomeServicesSection from "../../components/HomeServicesSection/HomeServicesSection";
 
 const Services = () => {
-    return (
-        <div>
-            Services Page comming soon
-        </div>
-    );
+  return (
+    <div>
+      <HomeServicesSection />
+    </div>
+  );
 };
 
 export default Services;

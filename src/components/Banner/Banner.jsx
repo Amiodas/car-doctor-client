@@ -9,7 +9,7 @@ const Banner = () => {
           src="/src/assets/images/banner/1.jpg"
           className="w-full rounded-lg"
         />
-        <div className="absolute h-full flex items-center pl-12 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] z-10">
+        <div className="absolute h-full flex items-center pl-12 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] z-0">
           <div className="text-white space-y-8 w-1/2">
             <h2 className="text-6xl font-bold leading-tight">
               Affordable Price For Car Servicing
@@ -19,7 +19,7 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div>
-              <button className="btn bg-orange-500 mr-5">Discover More</button>
+              <button className="btn bg-orange-500 text-white border-0 hover:bg-orange-700 mr-5">Discover More</button>
               <button className="btn btn-outline btn-primary">Latest Project</button>
             </div>
           </div>

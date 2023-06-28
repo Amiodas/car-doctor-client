@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./HomeServicesSection.css";
+import { Link } from "react-router-dom";
 
 const HomeServicesSection = () => {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("services.json")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
-      .then((data) => setServices(data));
+      .then((data) => {
+        setServices(data);
+        setLoading(false);
+      });
   }, []);
   return (
     <div className="mb-16">
@@ -21,22 +26,38 @@ const HomeServicesSection = () => {
         <div className="grid grid-cols-3 gap-5 mt-10">
           {services.map((service) => (
             <div
-              key={service._id}
-              className="card card-compact w-96 bg-base-100 shadow-xl mb-8"
+              key={service?._id}
+              className="card card-compact w-96 h-full bg-base-100 shadow-xl mb-8"
             >
-              <figure>
-                <img src={service.img} alt="Shoes" />
-              </figure>
-              <div className="card-body space-y-3">
-                <h2 className="card-title">{service.title}</h2>
-                <p className="text-gray-500 max-lines">{service.description}</p>
-                <div className="card-actions flex justify-between items-center">
-                  <p className="text-xl font-bold text-orange-600">
-                    Price: {service.price}
-                  </p>
-                  <button className="btn bg-orange-500 text-white hover:bg-orange-600">Buy Now</button>
+              {!loading ? (
+                <div>
+                  <figure>
+                    <img src={service?.img} alt="Shoes" />
+                  </figure>
+                  <div className="card-body space-y-3">
+                    <h2 className="card-title">{service?.title}</h2>
+                    <p className="text-gray-500 max-lines">
+                      {service?.description}
+                    </p>
+                    <div className="card-actions flex justify-between items-center">
+                      <p className="text-xl font-bold text-orange-600">
+                        Price: {service?.price}
+                      </p>
+                      <div>
+                        <Link to={`/checkout/${service?._id}`}>
+                          <button className="btn bg-orange-500 text-white hover:bg-orange-600">
+                            book Now
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="text-center">
+                <span className="loading loading-spinner loading-lg text-orange-600"></span>
+                </div>
+              )}
             </div>
           ))}
         </div>
