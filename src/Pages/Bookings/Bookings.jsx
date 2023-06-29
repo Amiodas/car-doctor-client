@@ -1,17 +1,30 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("car-access-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        setBookings(data);
+        if (!data.error) {
+          setBookings(data);
+        } else {
+          navigate("/");
+          toast("Access token time expired, Please sign in again.");
+        }
       });
   }, []);
 
@@ -55,6 +68,7 @@ const Bookings = () => {
   };
   return (
     <div className="mb-16">
+      <ToastContainer />
       <div className="relative">
         <figure>
           <img

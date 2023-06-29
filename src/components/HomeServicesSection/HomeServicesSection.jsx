@@ -32,7 +32,7 @@ const HomeServicesSection = () => {
               {!loading ? (
                 <div>
                   <figure>
-                    <img src={service?.img} alt="Shoes" />
+                    <img src={service?.img} alt="Shoes" className="rounded-lg" />
                   </figure>
                   <div className="card-body space-y-3">
                     <h2 className="card-title">{service?.title}</h2>
@@ -61,7 +61,7 @@ const HomeServicesSection = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-16">
           <button className="btn btn-outline text-orange-600  px-6 py-4 hover:bg-orange-600 hover:border-0">
             More Services
           </button>
